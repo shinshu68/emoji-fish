@@ -15,9 +15,13 @@ with urllib.request.urlopen(GITHUB_EMOJI_URL) as req:
     emoji_json = json.loads(req.read().decode('utf-8'))
     for emoji in emoji_json:
         hex_data = emoji_to_hex(emoji['emoji'])
-        for alias in emoji['aliases']:
-            emoji_list.append(f'":{alias}:"={hex_data}')
+        emoji_data = {
+                        'emoji': emoji['emoji'],
+                        'unicode': hex_data,
+                        'aliases': emoji['aliases'],
+                        'description': emoji['description']
+                     }
+        emoji_list.append(emoji_data)
 
-emoji_list.sort()
 for emoji in emoji_list:
     print(emoji)
