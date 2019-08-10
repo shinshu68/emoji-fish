@@ -21,6 +21,7 @@ def suggest(token):
 if __name__ == '__main__':
     args = sys.argv
     if len(args) == 2:
-        suggest(args[1])
+        token = args[1].strip(':').lower()
+        suggest(token)
     else:
         exit()
