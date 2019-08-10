@@ -9,7 +9,13 @@ def suggest(token):
 
     match_data = [emoji for emoji in emoji_data for alias in emoji['aliases'] if token in alias]
 
-    print(match_data)
+    data = [tuple(d.items()) for d in match_data]
+    data = set([(i[0], i[1], (i[2][0], tuple(i[2][1])), i[3]) for i in data])
+    match_data = [dict(t) for t in data]
+    for data in match_data:
+        emoji = data['emoji']
+        for alias in data['aliases']:
+            print(f'{emoji} :{alias}:')
 
 
 if __name__ == '__main__':
