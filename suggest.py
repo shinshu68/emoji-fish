@@ -1,10 +1,14 @@
 import json
 import sys
+import os
+
+
+HOME = os.getenv('HOME')
 
 
 def suggest(token):
     emoji_data = []
-    with open('emoji.json') as f:
+    with open(f'{HOME}/emoji-fish/emoji.json') as f:
         emoji_data = json.load(f)
 
     match_data = [emoji for emoji in emoji_data for alias in emoji['aliases'] if token in alias]
