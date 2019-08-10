@@ -23,5 +23,6 @@ with urllib.request.urlopen(GITHUB_EMOJI_URL) as req:
                      }
         emoji_list.append(emoji_data)
 
-for emoji in emoji_list:
-    print(emoji)
+with open('emoji.json', 'w') as f:
+    json.dump(emoji_list, f, ensure_ascii=False, indent=4, separators=(',', ': '))
+
