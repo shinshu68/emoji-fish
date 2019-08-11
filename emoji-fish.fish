@@ -13,7 +13,7 @@ function emoji-fish
     end
 
     set -l alias (echo $emoji | awk '{print $2}')
-    if test -n '$alias'
+    if test $alias != ""
         commandline -P -S
         commandline -r $trim_token_buf$alias
     end
