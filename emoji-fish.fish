@@ -1,5 +1,3 @@
-bind \cs emoji-fish
-
 function emoji-fish
     set -l buffer (commandline)
     set -l buffer_len (string length $buffer)
