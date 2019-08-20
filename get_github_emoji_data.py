@@ -19,6 +19,7 @@ with urllib.request.urlopen(GITHUB_EMOJI_URL) as req:
                         'emoji': emoji['emoji'],
                         'unicode': hex_data,
                         'aliases': emoji['aliases'],
+                        'tags': emoji['tags'],
                         'description': emoji['description']
                      }
         emoji_list.append(emoji_data)
