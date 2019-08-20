@@ -14,7 +14,7 @@ def suggest(token):
     match_data = [emoji for emoji in emoji_data for alias in emoji['aliases'] if token in alias]
 
     data = [tuple(d.items()) for d in match_data]
-    data = set([(i[0], i[1], (i[2][0], tuple(i[2][1])), i[3]) for i in data])
+    data = set([(i[0], i[1], (i[2][0], tuple(i[2][1])), (i[3][0], tuple(i[3][1]))) for i in data])
     match_data = [dict(t) for t in data]
     match_data.sort(key=lambda x: x['aliases'][0])
     for data in match_data:
