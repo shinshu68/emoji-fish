@@ -6,9 +6,9 @@ import os
 HOME = os.getenv('HOME')
 
 
-def suggest(token):
+def suggest(path, token):
     emoji_data = []
-    with open(f'{HOME}/.emoji-fish/emoji.json') as f:
+    with open(f'{path}/emoji.json') as f:
         emoji_data = json.load(f)
 
     match_data = [emoji for emoji in emoji_data for alias in emoji['aliases'] if token in alias]
@@ -25,8 +25,9 @@ def suggest(token):
 
 if __name__ == '__main__':
     args = sys.argv
-    if len(args) == 2:
-        token = args[1].strip(':').lower()
-        suggest(token)
+    if len(args) == 3:
+        path = args[1]
+        token = args[2].strip(':').lower()
+        suggest(path, token)
     else:
         exit()
