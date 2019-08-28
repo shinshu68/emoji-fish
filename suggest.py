@@ -1,9 +1,5 @@
 import json
 import sys
-import os
-
-
-HOME = os.getenv('HOME')
 
 
 def suggest(path, token):
