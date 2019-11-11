@@ -8,7 +8,7 @@ function emoji-fish
     set -l function_file (type emoji-fish | head -n 2 | tail -n 1 | awk '{print $4}')
     set -l installed_path (dirname (realpath $function_file))
 
-    set -l emoji (python $installed_path/suggest.py $installed_path $token | fzf-tmux -d $FZF_TMUX_HEIGHT)
+    set -l emoji (python3 $installed_path/suggest.py $installed_path $token | fzf-tmux -d $FZF_TMUX_HEIGHT)
     if test $status -ne 0
         false
     end
